@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>$17.5m Terminal Turnaround — Case Study · Mariana Simas</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a18;
+    --ink-mid: #5a5a54;
+    --ink-light: #9a9a90;
+    --ink-faint: #e8e8e0;
+    --paper: #f7f6f0;
+    --paper-warm: #eeede5;
+    --green: #1a5c3a;
+    --green-light: #e6f0e9;
+    --amber: #7a4a10;
+    --amber-light: #f5ede0;
+    --red: #8b1a1a;
+    --red-light: #f5e6e6;
+    --blue: #1a3a5c;
+    --blue-light: #e6ecf0;
+    --teya-lime: #c8d400;
+    --accent: #c8603a;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.6; }
+  body { max-width: 860px; margin: 0 auto; padding: 0 2rem 6rem; }
+  nav { padding: 2rem 0 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--ink-faint); padding-bottom: 1.25rem; margin-bottom: 4rem; }
+  .nav-name { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+  .nav-back { font-size: 0.8rem; color: var(--ink-mid); text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; }
+  .hero { margin-bottom: 4rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
+  .tag { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 2px; padding: 4px 10px; }
+  .tag-red { background: var(--red-light); color: var(--red); }
+  .tag-amber { background: var(--amber-light); color: var(--amber); }
+  .tag-green { background: var(--green-light); color: var(--green); }
+  .tag-blue { background: var(--blue-light); color: var(--blue); }
+  h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.15; color: var(--ink); margin-bottom: 1.5rem; max-width: 720px; }
+  .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--ink-faint); border-radius: 4px; overflow: hidden; margin-top: 2rem; }
+  .stat { padding: 1.25rem 1.5rem; border-right: 1px solid var(--ink-faint); }
+  .stat:last-child { border-right: none; }
+  .stat-val { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--ink); line-height: 1; }
+  .stat-val.danger { color: var(--red); }
+  .stat-val.good { color: var(--green); }
+  .stat-lbl { font-size: 0.72rem; color: var(--ink-light); margin-top: 4px; }
+  section { margin-bottom: 3.5rem; }
+  .section-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 0.6rem; }
+  h2 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--ink); margin-bottom: 0.75rem; line-height: 1.25; }
+  p { font-size: 0.95rem; color: var(--ink-mid); line-height: 1.75; margin-bottom: 0.75rem; }
+  p:last-child { margin-bottom: 0; }
+  hr.divider { border: none; border-top: 1px solid var(--ink-faint); margin: 3.5rem 0; }
+
+  /* TERMINAL ILLUSTRATION */
+  .terminal-section { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: center; margin: 1.5rem 0; }
+  .terminal-illustration { display: flex; justify-content: center; }
+
+  /* PROBLEM CARDS */
+  .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 1.25rem 0; }
+  .problem-card { border: 1px solid var(--ink-faint); border-radius: 4px; padding: 1rem; background: white; }
+  .problem-card.critical { border-top: 3px solid var(--red); }
+  .problem-title { font-size: 0.82rem; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
+  .problem-body { font-size: 0.78rem; color: var(--ink-mid); line-height: 1.6; }
+
+  /* TIMELINE */
+  .timeline { margin: 1.5rem 0; }
+  .timeline-item { display: grid; grid-template-columns: 120px 1fr; gap: 1.5rem; margin-bottom: 1.25rem; position: relative; }
+  .timeline-item::before { content: ''; position: absolute; left: 119px; top: 8px; bottom: -20px; width: 1px; background: var(--ink-faint); }
+  .timeline-item:last-child::before { display: none; }
+  .timeline-date { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--ink-light); padding-top: 2px; text-align: right; }
+  .timeline-dot { position: absolute; left: 113px; top: 6px; width: 13px; height: 13px; border-radius: 50%; background: var(--paper); border: 2px solid var(--ink-light); }
+  .timeline-dot.done { border-color: var(--green); background: var(--green); }
+  .timeline-dot.critical { border-color: var(--red); background: var(--red); }
+  .timeline-content { padding-left: 1rem; }
+  .timeline-title { font-size: 0.88rem; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
+  .timeline-desc { font-size: 0.78rem; color: var(--ink-mid); line-height: 1.5; }
+
+  /* SETUP TIME COMPARISON */
+  .setup-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 1.25rem 0; }
+  .setup-card { border-radius: 4px; padding: 1.25rem; text-align: center; }
+  .setup-card.before { background: var(--red-light); border: 1px solid #c8a0a0; }
+  .setup-card.after { background: var(--green-light); border: 1px solid #a8c8b0; }
+  .setup-time { font-family: 'DM Serif Display', serif; font-size: 2.8rem; line-height: 1; margin-bottom: 4px; }
+  .setup-card.before .setup-time { color: var(--red); }
+  .setup-card.after .setup-time { color: var(--green); }
+  .setup-label { font-size: 0.78rem; font-weight: 500; }
+  .setup-card.before .setup-label { color: var(--red); }
+  .setup-card.after .setup-label { color: var(--green); }
+  .setup-desc { font-size: 0.72rem; color: var(--ink-mid); margin-top: 6px; line-height: 1.5; }
+
+  /* ROLLOUT MARKETS */
+  .markets-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin: 1.25rem 0; }
+  .market-card { border: 1px solid var(--ink-faint); border-radius: 4px; padding: 10px 6px; text-align: center; background: white; }
+  .market-flag { font-size: 1.2rem; margin-bottom: 4px; }
+  .market-code { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--ink-mid); }
+
+  /* PHASES */
+  .phase-row { display: grid; grid-template-columns: 140px 1fr; gap: 16px; align-items: center; padding: 12px 0; border-bottom: 0.5px solid var(--ink-faint); }
+  .phase-row:last-child { border-bottom: none; }
+  .phase-date { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--ink-light); }
+  .phase-label { font-size: 0.82rem; font-weight: 500; color: var(--ink); }
+  .phase-desc { font-size: 0.75rem; color: var(--ink-mid); margin-top: 2px; }
+  .done-pill { font-size: 0.65rem; background: var(--green-light); color: var(--green); border-radius: 20px; padding: 1px 8px; font-weight: 500; display: inline-block; margin-left: 8px; vertical-align: middle; }
+
+  /* FIVE X BOX */
+  .highlight-box { background: var(--paper-warm); border-left: 3px solid var(--accent); border-radius: 0 4px 4px 0; padding: 1rem 1.25rem; margin: 1.25rem 0; }
+  .highlight-box p { font-size: 0.88rem; color: var(--ink); line-height: 1.7; margin: 0; }
+
+  /* WHAT I DID GRID */
+  .did-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 1.25rem 0; }
+  .did-card { border: 1px solid var(--ink-faint); border-radius: 4px; padding: 1rem; background: white; }
+  .did-num { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--ink-faint); line-height: 1; margin-bottom: 6px; }
+  .did-title { font-size: 0.82rem; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+  .did-body { font-size: 0.78rem; color: var(--ink-mid); line-height: 1.6; }
+
+  /* OUTCOME STATS */
+  .outcome-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 1.25rem 0; }
+  .outcome-card { border: 1px solid #a8c8b0; border-radius: 4px; padding: 1.25rem; background: var(--green-light); }
+  .outcome-val { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--green); line-height: 1; }
+  .outcome-lbl { font-size: 0.75rem; color: var(--green); margin-top: 4px; }
+
+  /* LEARNINGS */
+  .learning { font-size: 0.88rem; color: var(--ink-mid); line-height: 1.75; padding: 12px 16px; border-left: 3px solid var(--ink-faint); border-radius: 0 4px 4px 0; margin-bottom: 10px; background: white; }
+
+  footer { padding: 2rem 0; border-top: 1px solid var(--ink-faint); display: flex; justify-content: space-between; align-items: center; margin-top: 4rem; }
+  .footer-name { font-family: 'DM Serif Display', serif; font-size: 0.95rem; color: var(--ink-mid); }
+  .footer-sub { font-size: 0.75rem; color: var(--ink-light); }
+
+  @media (max-width: 600px) {
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .stat { border-bottom: 1px solid var(--ink-faint); }
+    .terminal-section { grid-template-columns: 1fr; }
+    .terminal-illustration { order: -1; }
+    .problem-grid, .setup-compare, .did-grid, .outcome-grid { grid-template-columns: 1fr; }
+    .markets-grid { grid-template-columns: repeat(4, 1fr); }
+    .phase-row { grid-template-columns: 1fr; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-name">Mariana Simas</a>
+  <a href="index.html" class="nav-back" data-en="← All projects" data-pt="← Todos os projetos">← All projects</a>
+</nav>
+
+<section class="hero">
+  <div class="tags">
+    <span class="tag tag-red">Hardware programme</span>
+    <span class="tag tag-amber">Hardware at risk</span>
+    <span class="tag tag-green">7 markets</span>
+    <span class="tag tag-blue">Vendor relationship</span>
+  </div>
+  <h1>Rescuing $17.5m of idle terminals — 100,000 devices, wrong brand, blocked deployment, 7 markets launched in 8 months.</h1>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-val danger">$17.5m</div><div class="stat-lbl">of idle inventory to deploy</div></div>
+    <div class="stat"><div class="stat-val">14k → 47k</div><div class="stat-lbl">devices deployed: 2024 launch → 2025 scale</div></div>
+    <div class="stat"><div class="stat-val good">5×</div><div class="stat-lbl">faster setup (15 min → under 3)</div></div>
+    <div class="stat"><div class="stat-val good">7</div><div class="stat-lbl">markets launched Sep 2024</div></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section>
+  <div class="terminal-section">
+    <div class="terminal-illustration">
+      <svg width="160" viewBox="0 0 200 340" xmlns="http://www.w3.org/2000/svg">
+        <!-- Terminal body -->
+        <rect x="20" y="100" width="160" height="220" rx="16" fill="#1a1a18"/>
+        <!-- Screen -->
+        <rect x="30" y="115" width="140" height="160" rx="8" fill="#f0f0ea"/>
+        <!-- Teya lime shapes on screen -->
+        <ellipse cx="155" cy="175" rx="55" ry="55" fill="#c8d400" opacity="0.9"/>
+        <ellipse cx="55" cy="255" rx="45" ry="45" fill="#c8d400" opacity="0.9"/>
+        <ellipse cx="100" cy="130" rx="30" ry="30" fill="#c8d400" opacity="0.4"/>
+        <!-- Teya logo on screen -->
+        <rect x="72" y="188" width="56" height="24" rx="6" fill="#1a1a18" opacity="0.85"/>
+        <text x="100" y="204" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#f0f0ea">teya</text>
+        <!-- Bottom button area -->
+        <rect x="20" y="320" width="160" height="20" rx="10" fill="#2a2a28"/>
+        <!-- Printer cover — lime green -->
+        <rect x="20" y="40" width="160" height="68" rx="12" fill="#c8d400"/>
+        <!-- Contactless logo on cover -->
+        <g transform="translate(100, 68) scale(0.8)">
+          <path d="M0,-18 Q12,-12 12,0 Q12,12 0,18" fill="none" stroke="#1a1a18" stroke-width="3" stroke-linecap="round"/>
+          <path d="M0,-12 Q8,-8 8,0 Q8,8 0,12" fill="none" stroke="#1a1a18" stroke-width="3" stroke-linecap="round"/>
+          <path d="M0,-6 Q4,-4 4,0 Q4,4 0,6" fill="none" stroke="#1a1a18" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="-6" cy="0" r="3" fill="#1a1a18"/>
+        </g>
+        <!-- Teya logo on cover -->
+        <rect x="62" y="82" width="38" height="14" rx="4" fill="#1a1a18" opacity="0.7"/>
+        <text x="81" y="93" text-anchor="middle" font-family="sans-serif" font-size="7" font-weight="600" fill="#c8d400">teya</text>
+        <!-- Paper slot -->
+        <rect x="50" y="104" width="100" height="4" rx="2" fill="#333"/>
+      </svg>
+    </div>
+    <div>
+      <div class="section-label">The problem</div>
+      <h2>100,000 terminals. Wrong brand. $17.5m sitting idle.</h2>
+      <p>In 2021 Teya (then SaltPay) purchased 100,000 Sunmi P2 PRO terminals at approximately $175 per device — a $17.5m hardware investment. On 4 April 2023, Teya rebranded entirely. Overnight, the entire stock was branded SaltPay — purple covers, old logo — and couldn't be shipped to merchants.</p>
+      <p>Only ~60 had been deployed by the time I took ownership of the project. With PCI certification set to expire in April 2026, the commercial pressure was real: $17.5m of inventory sitting idle, a company brand relaunch that needed a flagship product moment, and a supply chain and operations team unable to scale without a faster setup process. The window to fix all three simultaneously was the launch target of September 2024.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section>
+  <div class="section-label">Three compounding problems</div>
+  <h2>It wasn't one problem. It was three at once.</h2>
+  <div class="problem-grid">
+    <div class="problem-card critical">
+      <div class="problem-title">Wrong brand on 100k devices</div>
+      <div class="problem-body">All terminals had purple SaltPay printer covers. The Teya brand was lime green (Pantone 388C). New injection-moulded covers had to be designed, manufactured, and fitted before a single device could ship.</div>
+    </div>
+    <div class="problem-card critical">
+      <div class="problem-title">Neglected supplier relationship</div>
+      <div class="problem-body">Sunmi had sold Teya 100,000 units but seen almost none deployed. The relationship had gone cold. Remote Key Injection — the scalable path to PCI certification — required active Sunmi collaboration and a new NDA. We needed them engaged and cooperative.</div>
+    </div>
+    <div class="problem-card critical">
+      <div class="problem-title">Setup time of 15+ minutes per device</div>
+      <div class="problem-body">The existing terminal setup flow required sales agents and merchants to configure each device manually — taking 15+ minutes per terminal. At 100,000 units across 7 markets, this was operationally impossible without a faster path.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section>
+  <div class="section-label">My role</div>
+  <h2>End-to-end ownership of a cross-functional hardware programme.</h2>
+  <p>I was the Product Manager responsible for the full programme — from supplier relationship management and cover manufacturing, to software development, RKI setup, and the 7-market rollout. The project spanned hardware manufacturing, engineering, supply chain, legal/procurement, sales, customer support, and 7 country operations teams.</p>
+  <div class="did-grid">
+    <div class="did-card">
+      <div class="did-num">01</div>
+      <div class="did-title">Rebuilt the Sunmi relationship</div>
+      <div class="did-body">Re-engaged Sunmi after a period of inactivity. Negotiated and executed the Remote Key Injection setup — including NDA, transport key generation, physical key components sent internationally by recorded post, and RKI portal configuration. This unlocked scalable PCI-compliant deployment.</div>
+    </div>
+    <div class="did-card">
+      <div class="did-num">02</div>
+      <div class="did-title">Solved the rebranding problem</div>
+      <div class="did-body">Investigated 5 UK painting and coating suppliers, evaluated durability (Wolff-Wilborn pencil hardness), UV protection, and pad printing vs screen printing. Decision: new injection-moulded covers in Teya lime (Pantone 388C) with pad-printed contactless and Teya logos. Covers sourced directly from Sunmi via Sanmina — our approved warehouse partner — who also handled device preparation and staging at scale.</div>
+    </div>
+    <div class="did-card">
+      <div class="did-num">03</div>
+      <div class="did-title">Built the custom Android launcher</div>
+      <div class="did-body">Led development of a custom Android launcher for the Sunmi terminal — in partnership with the design lead — including home screen, navigation bar, status bar, and a guided setup flow. This reduced terminal setup time from 15+ minutes to under 3 minutes (5×) and became one of Teya's most recognised brand expressions.</div>
+    </div>
+    <div class="did-card">
+      <div class="did-num">04</div>
+      <div class="did-title">Coordinated the 7-market rollout</div>
+      <div class="did-body">Managed phased deployment across UK, Portugal, Slovakia, Hungary, Czech Republic, Croatia, and Iceland — coordinating supply chain, sales training, CR training, help centre localisation, and market-specific feature readiness (meal vouchers, EPOS integrations). Tested 4,000 device battery health in-house before shipping.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+
+<hr class="divider">
+
+<section>
+  <div class="section-label">Key architectural decision — PCI key injection</div>
+  <h2>Three options. One had to scale to 100,000 devices. Only one qualified.</h2>
+  <p>A critical blocker to deploying Sunmi terminals at scale was key injection — the PCI-required process of loading encryption keys onto each device so card data can be securely encrypted at the point of sale. This hadn't been properly solved when the terminals were originally purchased. Three options were evaluated:</p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:1.25rem 0;">
+    <div style="border:0.5px solid var(--ink-faint);border-radius:4px;padding:1rem;background:white;opacity:0.5;">
+      <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink-light);margin-bottom:6px;">Option B</div>
+      <div style="font-size:0.82rem;font-weight:500;color:var(--ink);margin-bottom:6px;">Sunmi Local Key Injection</div>
+      <div style="font-size:0.75rem;color:var(--ink-mid);line-height:1.6;">Keys loaded manually in secure room via Key Loading Device. Available immediately. Not scalable for GA — all terminals would need to be physically shipped to Portugal for key loading at $700/master terminal.</div>
+    </div>
+    <div style="border:0.5px solid var(--ink-faint);border-radius:4px;padding:1rem;background:white;opacity:0.5;">
+      <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink-light);margin-bottom:6px;">Option C</div>
+      <div style="font-size:0.82rem;font-weight:500;color:var(--ink);margin-bottom:6px;">Teya's own RKI solution</div>
+      <div style="font-size:0.75rem;color:var(--ink-mid);line-height:1.6;">Cheapest option — reuse existing HSM. But not PCI certified, not scalable, and required Teya security approval that wasn't guaranteed. Ruled out immediately for a 100k device deployment.</div>
+    </div>
+    <div style="border:2px solid var(--green);border-radius:4px;padding:1rem;background:var(--green-light);position:relative;">
+      <div style="position:absolute;top:-10px;left:12px;background:var(--green);color:white;font-size:9px;padding:2px 9px;border-radius:20px;font-weight:500;">Selected</div>
+      <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--green);margin-bottom:6px;">Option A</div>
+      <div style="font-size:0.82rem;font-weight:500;color:var(--ink);margin-bottom:6px;">Sunmi Remote Key Injection</div>
+      <div style="font-size:0.75rem;color:var(--ink-mid);line-height:1.6;">Already PCI certified. Fully scalable — no device limit for global availability. Keys loaded remotely from each country. Requires Sunmi collaboration, NDA, and transport key exchange. Only option that supported unlimited global availability.</div>
+    </div>
+  </div>
+  <div style="background:var(--paper-warm);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;padding:1rem 1.25rem;margin:1.25rem 0;">
+    <p style="font-size:0.88rem;color:var(--ink);line-height:1.7;margin:0;">After selecting Sunmi RKI, a secondary cost optimisation was identified: the initial implementation used a double-key approach, incurring double licensing fees per device. Moving to a single BDK (Base Derivation Key) — still fully PCI compliant — halved the ongoing RKI cost per terminal across the entire 100k device fleet.</p>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">The setup time breakthrough</div>
+  <h2>From 15 minutes to under 3. The number that made deployment possible.</h2>
+  <div class="setup-compare">
+    <div class="setup-card before">
+      <div class="setup-time">15+</div>
+      <div class="setup-label">minutes per terminal</div>
+      <div class="setup-desc">Manual configuration by sales agent or merchant. At 100,000 units across 7 markets, this was operationally unscalable.</div>
+    </div>
+    <div class="setup-card after">
+      <div class="setup-time">&lt;3</div>
+      <div class="setup-label">minutes per terminal</div>
+      <div class="setup-desc">Custom Android launcher with guided onboarding flow. 5× faster. Enabled self-onboarding and dramatically reduced support burden.</div>
+    </div>
+  </div>
+  <div class="highlight-box">
+    <p>The setup time reduction wasn't just a UX improvement — it was a deployment precondition. At 15 minutes per device, deploying 100,000 terminals across 7 markets by the September 2024 launch target was physically impossible. Getting it under 3 minutes changed the maths entirely. It's also what made the terminal Teya's first product that could scale without proportional support cost growth.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section>
+  <div class="section-label">Rollout timeline</div>
+  <h2>Phased deployment. Seven markets. Official launch 2 September 2024.</h2>
+  <div style="margin: 1.25rem 0 1.5rem;">
+    <div class="phase-row">
+      <div><div class="phase-date">Jul 2024</div></div>
+      <div><div class="phase-label">Pilot deployment — UK, PT, SK, HU <span class="done-pill">Done</span></div><div class="phase-desc">95 Sunmi terminals deployed to new merchants. Battery health tested in-house on 4,000 devices. New launcher and UX UAT completed. Supply chain staging pipeline operational with Sanmina (approved Sunmi partner handling device preparation and warehousing).</div></div>
+    </div>
+    <div class="phase-row">
+      <div><div class="phase-date">Aug 2024</div></div>
+      <div><div class="phase-label">Scaled shipping — all 7 markets <span class="done-pill">Done</span></div><div class="phase-desc">Sunmi P2 PROs with Teya lime green covers shipping to all markets. CR, Sales and Supply Chain trained across UK, PT, SK, HU, CZ, HR, IS. Help centre localised per market.</div></div>
+    </div>
+    <div class="phase-row">
+      <div><div class="phase-date">2 Sep 2024</div></div>
+      <div><div class="phase-label" style="color:var(--green);">Official Sunmi launch — 7 markets <span class="done-pill">Done</span></div><div class="phase-desc">Teya's first major product launch. Full marketing and communications investment behind the Sunmi P2 PRO as the company's primary terminal offering.</div></div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:1.5rem;">Markets launched</div>
+  <div class="markets-grid">
+    <div class="market-card"><div class="market-flag">🇬🇧</div><div class="market-code">UK</div></div>
+    <div class="market-card"><div class="market-flag">🇵🇹</div><div class="market-code">PT</div></div>
+    <div class="market-card"><div class="market-flag">🇸🇰</div><div class="market-code">SK</div></div>
+    <div class="market-card"><div class="market-flag">🇭🇺</div><div class="market-code">HU</div></div>
+    <div class="market-card"><div class="market-flag">🇨🇿</div><div class="market-code">CZ</div></div>
+    <div class="market-card"><div class="market-flag">🇭🇷</div><div class="market-code">HR</div></div>
+    <div class="market-card"><div class="market-flag">🇮🇸</div><div class="market-code">IS</div></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section>
+  <div class="section-label">Outcome</div>
+  <h2>14k deployed at launch. 47k the following year. Sunmi now Teya's primary terminal offering.</h2>
+  <div class="outcome-grid">
+    <div class="outcome-card">
+      <div class="outcome-val">14k</div>
+      <div class="outcome-lbl">Sunmi devices deployed in 2024 — launch year</div>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-val">47,390</div>
+      <div class="outcome-lbl">Sunmi devices deployed in 2025 — 3× scale-up year on year</div>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-val">100k</div>
+      <div class="outcome-lbl">active merchant target for 2025 — Sunmi programme is the primary vehicle to get there</div>
+    </div>
+  </div>
+  <p style="margin-top:1rem;">14,000 Sunmi devices were deployed in 2024 — the launch year that proved the programme worked. 47,390 followed in 2025, a 3× year-on-year increase. The Sunmi P2 PRO became Teya's primary terminal offering, with the entire 2025 merchant growth strategy built around continuing deployment. The Sunmi rollout also established the operational infrastructure — supply chain pipeline, RKI process, multi-market training framework — that will carry Teya's future terminal generations.</p>
+</section>
+
+<hr class="divider">
+
+<section>
+  <div class="section-label">What I learned</div>
+  <div style="margin-top:0.5rem;">
+    <div class="learning">The most underestimated part of this project was the supplier relationship. Sunmi had sold us 100,000 devices and seen almost none deployed — from their perspective, we were a neglectful partner. Rebuilding that relationship wasn't a procurement task, it was a trust task. It required showing up consistently, being honest about our timeline pressure, and making them feel invested in our success.</div>
+    <div class="learning">The 5× setup time reduction was the project's most consequential product decision — but it wasn't initially obvious that it was a deployment precondition. I identified early that the deployment maths didn't work at 15 minutes per device and worked backwards from "what does the setup flow need to look like for this to be operationally viable at 100k scale?" That framing unlocked the engineering investment in the launcher.</div>
+    <div class="learning">A rebranding problem that looks like a hardware problem is actually a supply chain problem, a manufacturing problem, a quality assurance problem, and a legal problem simultaneously. I had to learn pad printing, UV coating, plastic composition, and PCI key injection — including evaluating three key injection architectures — in the same project. The breadth was uncomfortable — and exactly what made the outcome possible.</div>
+    <div class="learning">Even after the major decisions were made, there was still optimisation work to do. The initial RKI implementation used a double-key approach that doubled licensing costs per device. Identifying that and moving to single BDK — without any impact on merchants or PCI compliance — was the kind of quiet, high-value work that doesn't make headlines but saves meaningful money at 100k device scale.</div>
+    <div class="learning">This was Teya's first major product launch as a company. The commercial pressure was real — but so was the symbolic importance. Getting it right meant the company had proof it could coordinate a multi-market hardware launch at scale. That credibility had value beyond the terminals themselves.</div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-name">Mariana Simas</div>
+    <div class="footer-sub">Senior Product Manager · Payments & Fintech</div>
+  </div>
+  <div class="footer-sub"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="88e6e9e6e9fbe1e5e9

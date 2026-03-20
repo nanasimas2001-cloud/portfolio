@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mariana Simas — Product Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a18; --ink-mid: #5a5a54; --ink-light: #9a9a90; --ink-faint: #e8e8e0;
+    --paper: #f7f6f0; --paper-warm: #eeede5;
+    --green: #1a5c3a; --green-light: #e6f0e9;
+    --amber: #7a4a10; --amber-light: #f5ede0;
+    --red: #8b1a1a; --red-light: #f5e6e6;
+    --blue: #1a3a5c; --blue-light: #e6ecf0;
+    --purple: #3a1a5c; --purple-light: #ece6f5;
+    --gold: #8a5e0a; --gold-light: #f5ead0;
+    --accent: #0a7c7c;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--paper); color: var(--ink); font-family: 'DM Sans', sans-serif; font-size: 16px; line-height: 1.6; }
+  body { max-width: 860px; margin: 0 auto; padding: 0 2rem 6rem; }
+  nav { padding: 2rem 0 1.25rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--ink-faint); margin-bottom: 5rem; }
+  .nav-name { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+  .nav-link { font-size: 0.8rem; color: var(--ink-mid); text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.15s; }
+  .nav-link:hover { color: var(--ink); }
+  .hero { margin-bottom: 5rem; }
+  .hero-eyebrow { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 1.25rem; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.4rem, 6vw, 3.8rem); line-height: 1.1; color: var(--ink); margin-bottom: 1.5rem; max-width: 720px; }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub { font-size: 1.05rem; color: var(--ink-mid); line-height: 1.75; max-width: 600px; margin-bottom: 2rem; }
+  .hero-cta-row { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+  .btn-primary { display: inline-block; background: var(--ink); color: var(--paper); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; padding: 0.65rem 1.4rem; border-radius: 3px; text-decoration: none; transition: background 0.15s; }
+  .btn-primary:hover { background: var(--accent); }
+  .btn-ghost { display: inline-block; color: var(--ink-mid); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; padding: 0.65rem 1.4rem; border-radius: 3px; text-decoration: none; border: 1px solid var(--ink-faint); transition: border-color 0.15s, color 0.15s; }
+  .btn-ghost:hover { border-color: var(--ink-mid); color: var(--ink); }
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--ink-faint); border-radius: 4px; overflow: hidden; margin-bottom: 5rem; }
+  .stat-cell { padding: 1.25rem 1.5rem; border-right: 1px solid var(--ink-faint); }
+  .stat-cell:last-child { border-right: none; }
+  .stat-val { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--ink); line-height: 1; }
+  .stat-val.accent { color: var(--accent); }
+  .stat-lbl { font-size: 0.72rem; color: var(--ink-light); margin-top: 4px; line-height: 1.4; }
+  .about { margin-bottom: 5rem; }
+  .section-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-light); margin-bottom: 0.6rem; }
+  h2 { font-family: 'DM Serif Display', serif; font-size: 1.7rem; color: var(--ink); margin-bottom: 1rem; line-height: 1.2; }
+  p { font-size: 0.95rem; color: var(--ink-mid); line-height: 1.8; margin-bottom: 0.85rem; }
+  p:last-child { margin-bottom: 0; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem; }
+  .strength-list { margin-top: 1rem; }
+  .strength-item { display: grid; grid-template-columns: 20px 1fr; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--ink-faint); align-items: start; }
+  .strength-item:last-child { border-bottom: none; }
+  .strength-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); margin-top: 7px; flex-shrink: 0; }
+  .strength-text { font-size: 0.85rem; color: var(--ink-mid); line-height: 1.6; }
+  .strength-text strong { color: var(--ink); font-weight: 500; }
+  .profile-pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.25rem; }
+  .pill { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.04em; border-radius: 20px; padding: 4px 12px; border: 1px solid var(--ink-faint); color: var(--ink-mid); background: white; }
+  .pill.amber { background: var(--amber-light); color: var(--amber); border-color: var(--amber-light); }
+  .pill.green { background: var(--green-light); color: var(--green); border-color: var(--green-light); }
+  .pill.blue { background: var(--blue-light); color: var(--blue); border-color: var(--blue-light); }
+  .pill.gold { background: var(--gold-light); color: var(--gold); border-color: var(--gold-light); }
+  .case-studies { margin-bottom: 5rem; }
+  .cs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 1.5rem; }
+  .cs-card { border: 1px solid var(--ink-faint); border-radius: 4px; padding: 1.5rem; background: white; text-decoration: none; display: block; transition: border-color 0.15s, box-shadow 0.15s; position: relative; overflow: hidden; }
+  .cs-card:hover { border-color: var(--ink-mid); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .cs-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .cs-card.moto::before { background: var(--accent); }
+  .cs-card.tipping::before { background: var(--green); }
+  .cs-card.turnaround::before { background: #b8860b; }
+  .cs-card.redesign::before { background: var(--gold); }
+  .cs-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 0.85rem; }
+  .cs-tag { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; border-radius: 2px; padding: 2px 8px; }
+  .cs-tag.red { background: var(--red-light); color: var(--red); }
+  .cs-tag.green { background: var(--green-light); color: var(--green); }
+  .cs-tag.amber { background: var(--amber-light); color: var(--amber); }
+  .cs-tag.blue { background: var(--blue-light); color: var(--blue); }
+  .cs-tag.gold { background: var(--gold-light); color: var(--gold); }
+  .cs-title { font-family: 'DM Serif Display', serif; font-size: 1.15rem; color: var(--ink); line-height: 1.3; margin-bottom: 0.5rem; }
+  .cs-desc { font-size: 0.8rem; color: var(--ink-mid); line-height: 1.65; margin-bottom: 1.25rem; }
+  .cs-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding-top: 1rem; border-top: 1px solid var(--ink-faint); }
+  .cs-metric-val { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--ink); line-height: 1; }
+  .cs-metric-lbl { font-size: 0.68rem; color: var(--ink-light); margin-top: 2px; line-height: 1.4; }
+  .cs-arrow { position: absolute; bottom: 1.5rem; right: 1.5rem; font-size: 0.8rem; color: var(--ink-light); transition: color 0.15s, transform 0.15s; }
+  .cs-card:hover .cs-arrow { color: var(--ink); transform: translate(2px, -2px); }
+  .experience { margin-bottom: 5rem; }
+  .exp-row { display: grid; grid-template-columns: 160px 1fr; gap: 2rem; padding: 1.5rem 0; border-bottom: 1px solid var(--ink-faint); }
+  .exp-row:last-child { border-bottom: none; }
+  .exp-date { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--ink-light); padding-top: 3px; }
+  .exp-role { font-size: 0.92rem; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+  .exp-company { font-size: 0.82rem; color: var(--ink-mid); margin-bottom: 0.5rem; }
+  .exp-body { font-size: 0.82rem; color: var(--ink-mid); line-height: 1.65; }
+  .contact-strip { background: var(--ink); border-radius: 4px; padding: 2rem 2.5rem; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2rem; margin-bottom: 5rem; }
+  .contact-heading { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--paper); margin-bottom: 0.4rem; }
+  .contact-sub { font-size: 0.85rem; color: rgba(247,246,240,0.6); }
+  .contact-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .btn-contact { display: inline-block; background: var(--paper); color: var(--ink); font-size: 0.8rem; font-weight: 500; padding: 0.6rem 1.2rem; border-radius: 3px; text-decoration: none; white-space: nowrap; transition: background 0.15s; }
+  .btn-contact:hover { background: var(--accent); color: white; }
+  .btn-contact-ghost { display: inline-block; color: rgba(247,246,240,0.7); font-size: 0.8rem; font-weight: 500; padding: 0.6rem 1.2rem; border-radius: 3px; text-decoration: none; border: 1px solid rgba(247,246,240,0.25); white-space: nowrap; transition: border-color 0.15s, color 0.15s; }
+  .btn-contact-ghost:hover { color: var(--paper); border-color: rgba(247,246,240,0.6); }
+  footer { padding: 2rem 0; border-top: 1px solid var(--ink-faint); display: flex; justify-content: space-between; align-items: center; }
+  .footer-name { font-family: 'DM Serif Display', serif; font-size: 0.95rem; color: var(--ink-mid); }
+  .footer-sub { font-size: 0.75rem; color: var(--ink-light); margin-top: 2px; }
+  hr.divider { border: none; border-top: 1px solid var(--ink-faint); margin: 3.5rem 0; }
+  @media (max-width: 640px) {
+    .stats-row { grid-template-columns: 1fr 1fr; }
+    .stat-cell { border-bottom: 1px solid var(--ink-faint); }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .cs-grid { grid-template-columns: 1fr; }
+    .exp-row { grid-template-columns: 1fr; gap: 0.25rem; }
+    .contact-strip { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Mariana Simas</a>
+  <div class="nav-links">
+    <a href="#work" class="nav-link" data-en="Work" data-pt="Projetos">Work</a>
+    <a href="#about" class="nav-link" data-en="About" data-pt="Sobre">About</a>
+    <a href="mailto:nanasimas01@gmail.com" class="nav-link" data-en="Contact" data-pt="Contato">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow" data-en="Product Manager · London → Rio de Janeiro" data-pt="Gerente de Produto · Londres → Rio de Janeiro">Product Manager · London → Rio de Janeiro</div>
+  <h1 data-en="Building products that work for the people who use them — <em>and the businesses that depend on them.</em>" data-pt="Criando produtos que funcionam para quem os usa — <em>e para os negócios que dependem deles.</em>">Building products that work for the people who use them — <em>and the businesses that depend on them.</em></h1>
+  <p class="hero-sub" data-en="Five years shipping payments infrastructure at European scale. I close the gap between complex technical systems and the merchants who rely on them every day — whether that's a corner shop in Lisbon or a restaurant chain in London." data-pt="Cinco anos entregando infraestrutura de pagamentos em escala europeia. Faço a ponte entre sistemas técnicos complexos e os lojistas que dependem deles todos os dias — seja uma padaria em Lisboa ou uma rede de restaurantes em Londres.">Five years shipping payments infrastructure at European scale. I close the gap between complex technical systems and the merchants who rely on them every day — whether that's a corner shop in Lisbon or a restaurant chain in London.</p>
+  <div class="hero-cta-row">
+    <a href="#work" class="btn-primary" data-en="See my work" data-pt="Ver meus projetos">See my work</a>
+    <a href="mailto:nanasimas01@gmail.com" class="btn-ghost" data-en="Get in touch" data-pt="Entre em contato">Get in touch</a>
+  </div>
+</section>
+
+<div class="stats-row">
+  <div class="stat-cell">
+    <div class="stat-val accent">5 anos</div>
+    <div class="stat-lbl" data-en="Senior PM at Teya, European fintech" data-pt="PM Sênior na Teya, fintech europeia">Senior PM at Teya, European fintech</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-val">9</div>
+    <div class="stat-lbl" data-en="markets shipped across Europe" data-pt="mercados lançados na Europa">markets shipped across Europe</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-val">80k+</div>
+    <div class="stat-lbl" data-en="active merchants on platform" data-pt="lojistas ativos na plataforma">active merchants on platform</div>
+  </div>
+  <div class="stat-cell">
+    <div class="stat-val">3</div>
+    <div class="stat-lbl" data-en="languages: English, Portuguese, Spanish" data-pt="idiomas: inglês, português, espanhol">languages: English, Portuguese, Spanish</div>
+  </div>
+</div>
+
+<section class="about" id="about">
+  <div class="section-label" data-en="About" data-pt="Sobre mim">About</div>
+  <h2 data-en="The PM who reads the Snowflake query <em>and</em> talks to the merchant." data-pt="A PM que lê a query no Snowflake <em>e</em> conversa com o lojista.">The PM who reads the Snowflake query <em>and</em> talks to the merchant.</h2>
+
+  <div class="about-grid">
+    <div>
+      <p data-en="I'm Mariana — a product manager with five years at Teya, a European payments company, where I've owned everything from terminal hardware UX to payments infrastructure scaling to self-initiated programmes that weren't on anyone's roadmap." data-pt="Sou a Mariana — gerente de produto com cinco anos na Teya, uma empresa europeia de pagamentos, onde fui responsável por tudo: da UX do hardware de terminais à escala da infraestrutura de pagamentos, passando por programas que iniciei por conta própria e que não estavam no roadmap de ninguém.">I'm Mariana — a product manager with five years at Teya, a European payments company, where I've owned everything from terminal hardware UX to payments infrastructure scaling to self-initiated programmes that weren't on anyone's roadmap.</p>
+      <p data-en="I studied PPE at Oxford, which taught me to read a situation carefully and argue a position clearly. That shows up in how I write product specs, how I run discovery, and how I get cross-functional alignment on decisions that aren't obvious." data-pt="Estudei PPE (Filosofia, Política e Economia) em Oxford, o que me ensinou a analisar situações com cuidado e defender posições com clareza. Isso aparece na forma como escrevo especificações de produto, conduzo discovery e consigo alinhamento entre times em decisões que não são óbvias.">I studied PPE at Oxford, which taught me to read a situation carefully and argue a position clearly. That shows up in how I write product specs, how I run discovery, and how I get cross-functional alignment on decisions that aren't obvious.</p>
+      <p data-en="I'm Brazilian, based in London, and relocating to Rio de Janeiro — where I'm looking for my next role. I'm open to any strong product organisation: fintech, consumer, B2B, e-commerce. What matters to me is the quality of the problem and the calibre of the team." data-pt="Sou brasileira, moro em Londres e estou me mudando para o Rio de Janeiro — onde estou em busca da minha próxima oportunidade. Estou aberta a qualquer organização de produto forte: fintech, consumidor, B2B, e-commerce. O que importa para mim é a qualidade do problema e o nível do time.">I'm Brazilian, based in London, and relocating to Rio de Janeiro — where I'm looking for my next role. I'm open to any strong product organisation: fintech, consumer, B2B, e-commerce. What matters to me is the quality of the problem and the calibre of the team.</p>
+      <div class="profile-pill-row">
+        <span class="pill amber" data-en="Oxford PPE, 2:1" data-pt="Oxford PPE, distinção">Oxford PPE, 2:1</span>
+        <span class="pill green" data-en="Payments &amp; fintech" data-pt="Pagamentos &amp; fintech">Payments &amp; fintech</span>
+        <span class="pill blue" data-en="Multi-market" data-pt="Múltiplos mercados">Multi-market</span>
+        <span class="pill gold" data-en="Hardware + software" data-pt="Hardware + software">Hardware + software</span>
+        <span class="pill" data-en="English · Portuguese · Spanish" data-pt="Inglês · Português · Espanhol">English · Portuguese · Spanish</span>
+      </div>
+    </div>
+
+    <div>
+      <p style="font-size:0.8rem; font-weight:500; color:var(--ink); margin-bottom:0;" data-en="What I'm good at" data-pt="Minhas forças">What I'm good at</p>
+      <div class="strength-list">
+        <div class="strength-item">
+          <div class="strength-dot"></div>
+          <div class="strength-text" data-en="&lt;strong&gt;Finding problems no one asked about.&lt;/strong&gt; The $12m inventory recovery, the tipping A/B test, the in-terminal notification system — none of these were on the roadmap. I initiated them because the data pointed somewhere and I followed it." data-pt="&lt;strong&gt;Identificar problemas que ninguém pediu.&lt;/strong&gt; A recuperação de $12m em inventário, os testes A/B de gorjeta, o sistema de notificações no terminal — nada disso estava no roadmap. Tomei a iniciativa porque os dados apontavam para algo e decidi investigar."><strong>Finding problems no one asked about.</strong> The $12m inventory recovery, the tipping A/B test, the in-terminal notification system — none of these were on the roadmap. I initiated them because the data pointed somewhere and I followed it.</div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-dot"></div>
+          <div class="strength-text" data-en="&lt;strong&gt;Making complex systems feel simple.&lt;/strong&gt; Payments infrastructure, PCI compliance, multi-scheme card processing — my job is to absorb that complexity and give merchants a product that feels obvious. The terminal redesign reduced support tickets by 85% on some categories." data-pt="&lt;strong&gt;Fazer sistemas complexos parecerem simples.&lt;/strong&gt; Infraestrutura de pagamentos, conformidade PCI, processamento multibandeira — meu trabalho é absorver essa complexidade e entregar um produto que pareça óbvio para o lojista. O redesign do terminal reduziu tickets de suporte em 85% em algumas categorias."><strong>Making complex systems feel simple.</strong> Payments infrastructure, PCI compliance, multi-scheme card processing — my job is to absorb that complexity and give merchants a product that feels obvious. The terminal redesign reduced support tickets by 85% on some categories.</div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-dot"></div>
+          <div class="strength-text" data-en="&lt;strong&gt;Getting things shipped across markets.&lt;/strong&gt; I've launched products simultaneously across 7 European countries, coordinating engineering, legal, compliance, localisation, and customer relations. I know what multi-market delivery actually costs." data-pt="&lt;strong&gt;Lançar produtos em múltiplos mercados.&lt;/strong&gt; Já lancei produtos simultaneamente em 7 países europeus, coordenando engenharia, jurídico, compliance, localização e atendimento ao cliente. Sei o que a entrega multimercado realmente exige."><strong>Getting things shipped across markets.</strong> I've launched products simultaneously across 7 European countries, coordinating engineering, legal, compliance, localisation, and customer relations. I know what multi-market delivery actually costs.</div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-dot"></div>
+          <div class="strength-text" data-en="&lt;strong&gt;Earning CPO and CTO sponsorship.&lt;/strong&gt; The MOTO launch required cross-functional resources I didn't control. I built the case, secured executive sponsorship, and delivered in 6 months across 6 markets." data-pt="&lt;strong&gt;Conquistar o apoio do CPO e do CTO.&lt;/strong&gt; O lançamento do MOTO exigiu recursos multifuncionais fora do meu controle. Construí o caso de negócio, garanti o patrocínio executivo e entreguei em 6 meses em 6 mercados."><strong>Earning CPO and CTO sponsorship.</strong> The MOTO launch required cross-functional resources I didn't control. I built the case, secured executive sponsorship, and delivered in 6 months across 6 markets.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="case-studies" id="work">
+  <div class="section-label" data-en="Selected work" data-pt="Projetos selecionados">Selected work</div>
+  <h2 data-en="Four case studies from five years at Teya." data-pt="Quatro estudos de caso de cinco anos na Teya.">Four case studies from five years at Teya.</h2>
+
+  <div class="cs-grid">
+    <a href="case_study_moto.html" class="cs-card moto">
+      <div class="cs-tags">
+        <span class="cs-tag red" data-en="Payments" data-pt="Pagamentos">Payments</span>
+        <span class="cs-tag blue" data-en="6 markets" data-pt="6 mercados">6 markets</span>
+        <span class="cs-tag green" data-en="Self-initiated" data-pt="Iniciativa própria">Self-initiated</span>
+      </div>
+      <div class="cs-title" data-en="Launching MOTO payments in 6 markets in 6 months" data-pt="Lançamento de pagamentos MOTO em 6 mercados em 6 meses">Launching MOTO payments in 6 markets in 6 months</div>
+      <div class="cs-desc" data-en="CPO and CTO sponsorship secured. New merchant segment unlocked. From zero to 197 merchants across 6 markets — with a custom eligibility framework, chargeback controls, and a cross-functional delivery that wasn't on the roadmap." data-pt="Patrocínio do CPO e CTO garantido. Novo segmento de lojistas desbloqueado. Do zero a 197 lojistas em 6 mercados — com framework de elegibilidade personalizado, controles de chargeback e uma entrega multifuncional que não estava no roadmap.">CPO and CTO sponsorship secured. New merchant segment unlocked. From zero to 197 merchants across 6 markets — with a custom eligibility framework, chargeback controls, and a cross-functional delivery that wasn't on the roadmap.</div>
+      <div class="cs-metrics">
+        <div><div class="cs-metric-val">197</div><div class="cs-metric-lbl" data-en="merchants onboarded at launch" data-pt="lojistas no lançamento">merchants onboarded at launch</div></div>
+        <div><div class="cs-metric-val">6</div><div class="cs-metric-lbl" data-en="markets, 6 months" data-pt="mercados, 6 meses">markets, 6 months</div></div>
+      </div>
+      <span class="cs-arrow">↗</span>
+    </a>
+
+    <a href="case_study_tipping.html" class="cs-card tipping">
+      <div class="cs-tags">
+        <span class="cs-tag green" data-en="A/B testing" data-pt="Testes A/B">A/B testing</span>
+        <span class="cs-tag amber" data-en="TPV growth" data-pt="Crescimento de TPV">TPV growth</span>
+        <span class="cs-tag green" data-en="Self-initiated" data-pt="Iniciativa própria">Self-initiated</span>
+      </div>
+      <div class="cs-title" data-en="Tipping A/B tests — €1.29m to €2.75m TPV" data-pt="Testes A/B de gorjeta — de €1,29m a €2,75m em TPV">Tipping A/B tests — €1.29m to €2.75m TPV</div>
+      <div class="cs-desc" data-en="Three variables tested simultaneously across 47k terminals. Real Snowflake data, a deliberate animation, and a 113.6% TPV uplift. A self-initiated programme that became a company-level lever for transaction value growth." data-pt="Três variáveis testadas simultaneamente em 47 mil terminais. Dados reais do Snowflake, uma animação intencional e aumento de 113,6% no TPV. Um programa de iniciativa própria que se tornou uma alavanca estratégica de crescimento.">Three variables tested simultaneously across 47k terminals. Real Snowflake data, a deliberate animation, and a 113.6% TPV uplift. A self-initiated programme that became a company-level lever for transaction value growth.</div>
+      <div class="cs-metrics">
+        <div><div class="cs-metric-val">+113.6%</div><div class="cs-metric-lbl" data-en="tipping TPV uplift" data-pt="aumento no TPV de gorjetas">tipping TPV uplift</div></div>
+        <div><div class="cs-metric-val">+100.5%</div><div class="cs-metric-lbl" data-en="tip transaction volume" data-pt="volume de transações com gorjeta">tip transaction volume</div></div>
+      </div>
+      <span class="cs-arrow">↗</span>
+    </a>
+
+    <a href="case_study_terminal_turnaround.html" class="cs-card turnaround">
+      <div class="cs-tags">
+        <span class="cs-tag amber" data-en="Hardware" data-pt="Hardware">Hardware</span>
+        <span class="cs-tag red" data-en="$17.5m at risk" data-pt="$17,5m em risco">$17.5m at risk</span>
+        <span class="cs-tag blue" data-en="7 markets" data-pt="7 mercados">7 markets</span>
+      </div>
+      <div class="cs-title" data-en="$17.5m terminal turnaround — 100k idle devices deployed" data-pt="Recuperação de $17,5m em terminais — 100 mil dispositivos ociosos implantados">$17.5m terminal turnaround — 100k idle devices deployed</div>
+      <div class="cs-desc" data-en="100,000 SaltPay-branded terminals, wrong brand, PCI expiry looming, blocked by a broken vendor relationship. Rebuilt the Sunmi partnership, engineered a rebranding solution via Sanmina, and scaled from 14k to 47k deployed devices." data-pt="100.000 terminais com marca SaltPay, marca errada, vencimento PCI se aproximando, bloqueados por parceria rompida com fornecedor. Reconstruí a parceria com a Sunmi, desenvolvi uma solução de rebranding via Sanmina e escalei de 14 mil para 47 mil dispositivos implantados.">100,000 SaltPay-branded terminals, wrong brand, PCI expiry looming, blocked by a broken vendor relationship. Rebuilt the Sunmi partnership, engineered a rebranding solution via Sanmina, and scaled from 14k to 47k deployed devices.</div>
+      <div class="cs-metrics">
+        <div><div class="cs-metric-val">47k</div><div class="cs-metric-lbl" data-en="Sunmi devices deployed by 2025" data-pt="dispositivos Sunmi implantados até 2025">Sunmi devices deployed by 2025</div></div>
+        <div><div class="cs-metric-val">5×</div><div class="cs-metric-lbl" data-en="faster setup time" data-pt="mais rápido na configuração">faster setup time</div></div>
+      </div>
+      <span class="cs-arrow">↗</span>
+    </a>
+
+    <a href="case_study_terminal_redesign.html" class="cs-card redesign">
+      <div class="cs-tags">
+        <span class="cs-tag gold" data-en="Terminal UX" data-pt="UX de Terminal">Terminal UX</span>
+        <span class="cs-tag green" data-en="CR reduction" data-pt="Redução de suporte">CR reduction</span>
+        <span class="cs-tag blue" data-en="Product craft" data-pt="Qualidade de produto">Product craft</span>
+      </div>
+      <div class="cs-title" data-en="From generic Android to Teya's brand signature on hardware" data-pt="Do Android genérico à identidade de marca da Teya no hardware">From generic Android to Teya's brand signature on hardware</div>
+      <div class="cs-desc" data-en="A complete terminal software redesign: custom Android launcher, guided onboarding, rebuilt payments flow, Sales Overview, self-serve PIN recovery, and a swipe-to-print easter egg cited spontaneously by merchants as their favourite feature." data-pt="Um redesign completo do software do terminal: launcher Android personalizado, onboarding guiado, fluxo de pagamentos reconstruído, Visão de Vendas, recuperação de PIN via autoatendimento e um easter egg de arrastar para imprimir — citado espontaneamente pelos lojistas como funcionalidade favorita.">A complete terminal software redesign: custom Android launcher, guided onboarding, rebuilt payments flow, Sales Overview, self-serve PIN recovery, and a swipe-to-print easter egg cited spontaneously by merchants as their favourite feature.</div>
+      <div class="cs-metrics">
+        <div><div class="cs-metric-val">85%+</div><div class="cs-metric-lbl" data-en="drop in PIN reset tickets" data-pt="redução nos tickets de reset de PIN">drop in PIN reset tickets</div></div>
+        <div><div class="cs-metric-val">68%</div><div class="cs-metric-lbl" data-en='merchants opened "What&apos;s New" in 60 days' data-pt='lojistas abriram "Novidades" em 60 dias'>merchants opened "What's New" in 60 days</div></div>
+      </div>
+      <span class="cs-arrow">↗</span>
+    </a>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="experience">
+  <div class="section-label" data-en="Experience" data-pt="Experiência">Experience</div>
+  <h2 data-en="Where I've worked." data-pt="Onde trabalhei.">Where I've worked.</h2>
+
+  <div class="exp-row">
+    <div class="exp-date" data-en="2019 – present&lt;br&gt;(5 years)" data-pt="2019 – hoje&lt;br&gt;(5 anos)">2019 – present<br>(5 years)</div>
+    <div>
+      <div class="exp-role" data-en="Product Manager" data-pt="Gerente de Produto">Product Manager</div>
+      <div class="exp-company">Teya (formerly SaltPay) · London</div>
+      <div class="exp-body" data-en="End-to-end ownership of the terminal product: hardware UX, payments software, infrastructure scaling, and merchant-facing features across 9 European markets. Shipped programmes ranging from single-feature A/B tests to multi-market hardware programmes worth $17.5m. Operated at senior level throughout, with cross-functional scope covering engineering, design, compliance, supply chain, and customer relations." data-pt="Responsabilidade completa pelo produto de terminais: UX de hardware, software de pagamentos, escala de infraestrutura e funcionalidades para lojistas em 9 mercados europeus. Entreguei programas que variaram de testes A/B de funcionalidades únicas a programas de hardware multimercado no valor de $17,5 milhões. Atuei em nível sênior durante todo o período, com escopo multifuncional abrangendo engenharia, design, compliance, supply chain e atendimento ao cliente.">End-to-end ownership of the terminal product: hardware UX, payments software, infrastructure scaling, and merchant-facing features across 9 European markets. Shipped programmes ranging from single-feature A/B tests to multi-market hardware programmes worth $17.5m. Operated at senior level throughout, with cross-functional scope covering engineering, design, compliance, supply chain, and customer relations.</div>
+    </div>
+  </div>
+
+  <div class="exp-row">
+    <div class="exp-date">2019 – 2022</div>
+    <div>
+      <div class="exp-role" data-en="BA, Philosophy, Politics &amp; Economics (2:1)" data-pt="Bacharelado em Filosofia, Política e Economia (distinção)">BA, Philosophy, Politics &amp; Economics (2:1)</div>
+      <div class="exp-company" data-en="University of Oxford · Exeter College" data-pt="Universidade de Oxford · Exeter College">University of Oxford · Exeter College</div>
+      <div class="exp-body" data-en="PPE with a focus on political economy and organisational theory. Developed the analytical and written communication skills that underpin how I approach product strategy, stakeholder alignment, and decision-making under uncertainty." data-pt="PPE com foco em economia política e teoria organizacional. Desenvolvi as habilidades analíticas e de comunicação escrita que fundamentam minha abordagem de estratégia de produto, alinhamento de stakeholders e tomada de decisão sob incerteza.">PPE with a focus on political economy and organisational theory. Developed the analytical and written communication skills that underpin how I approach product strategy, stakeholder alignment, and decision-making under uncertainty.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<div class="contact-strip">
+  <div>
+    <div class="contact-heading" data-en="Available for roles in Rio de Janeiro." data-pt="Disponível para oportunidades no Rio de Janeiro.">Available for roles in Rio de Janeiro.</div>
+    <div class="contact-sub" data-en="Open to PM, Senior PM, Strategy Manager, and Project Manager roles across any industry." data-pt="Aberta a posições de PM, PM Sênior, Gestora de Estratégia e Gestora de Projetos em qualquer setor.">Open to PM, Senior PM, Strategy Manager, and Project Manager roles across any industry.</div>
+  </div>
+  <div class="contact-links">
+    <a href="mailto:nanasimas01@gmail.com" class="btn-contact" data-en="Email me" data-pt="Me envie um e-mail">Email me</a>
+    <a href="https://linkedin.com/in/mariana-simas-pm" target="_blank" class="btn-contact-ghost">LinkedIn ↗</a>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-name">Mariana Simas</div>
+    <div class="footer-sub" data-en="Product Manager · London → Rio de Janeiro" data-pt="Gerente de Produto · Londres → Rio de Janeiro">Product Manager · London → Rio de Janeiro</div>
+  </div>
+  <div style="text-align:right;">
+    <div class="footer-sub">nanasimas01@gmail.com</div>
+    <div class="footer-sub">linkedin.com/in/mariana-simas-pm</div>
+  </div>
+</footer>
+
+<script src="lang.js"></script>
+</body>
+</html>
